@@ -9,7 +9,10 @@ import 'angular-material/angular-material.css';
 import './index.scss';
 
 import AppComponent from './app.component';
-// import routes from './index.route';
+import TaskFormComponent from './components/task-form/task-form.component';
+import TaskViewComponent from './components/task-view/task-view.component';
+import routes from './index.route';
+import ToDoService from './services/to-do.service';
 
 angular.module('main', [
   ngMaterial,
@@ -18,5 +21,8 @@ angular.module('main', [
   ngAnimate,
 ])
   .component('app', AppComponent)
-  // .config(['$stateProvider', routes])
+  .component('taskFormComponent', TaskFormComponent)
+  .component('taskViewComponent', TaskViewComponent)
+  .service('ToDoService', ToDoService)
+  .config(['$stateProvider', routes])
   .run();

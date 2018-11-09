@@ -1,11 +1,21 @@
-export default function ($stateProvider) {
+export default function ($stateProvider){
+
   $stateProvider
-    .state('addProviderUser', {
-      url: '/add-user',
-      component: 'providerUserComponent',
+    .state('form', {
+      url: '/form',
+      component: 'taskFormComponent',
+    })
+    .state('edit-form', {
+      url: '/edit-form/{id}',
+      component: 'taskFormComponent',
+    })
+    .state('view', {
+      url: '/view',
+      component: 'taskViewComponent',
     })
     .state('otherwise', {
       url: '*path',
-      component: 'providerUserListComponent',
+      component: 'taskFormComponent',
     });
 }
+

@@ -1,0 +1,38 @@
+
+<div class="container task-form">
+  <h2>Create your task</h2>
+    <form name="taskForm" ng-submit="$ctrl.onSubmit()" novalidate >
+
+      <div class="title">
+        <md-input-container class="md-block">
+          <label>Title</label>
+          <input maxlength="30" required md-no-asterisk name="title" ng-model="$ctrl.task.title">
+          <div ng-show="taskForm.$submitted || taskForm.title.$touched">
+            <div ng-show="taskForm.title.$error.required">This field is required.</div>
+          </div>
+        </md-input-container>
+      </div>
+
+      <div class="point" ng-repeat="point in $ctrl.task.points">
+        <span ng-hide="point.switcher">{{ point.content }}</span>
+        <md-input-container ng-if="point.switcher">
+          <label>{{ point.label }}</label>
+          <input type="text" ng-model="point.content" name="point">
+        </md-input-container>
+        <button type="button" ng-click="$ctrl.switch($index)">
+          <span ng-hide="point.switcher">Edit</span>
+          <span ng-if="point.switcher">Save</span>
+        </button>
+
+        <md-radio-group ng-model="point.status" ng-change="$ctrl.getStatus()" class="radio-group" ng-if="$ctrl.$stateParams.id">
+          <md-radio-button ng-repeat="status in point.statuses" ng-value="status.value" aria-label="{{status.value}}">
+            {{ status.value }}
+          </md-radio-button>
+        </md-radio-group>
+      </div>
+
+      <button type="submit" id="submit">Save</button>
+
+    </form>
+
+</div>

@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css?family=Chakra+Petch:400,600,700');
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+html,
+body{
+  height: 100%;
+}
+
+body {
+  font: 14px/20px 'Chakra Petch', sans-serif;
+  color: #777;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+p {
+  margin: 0;
+}
+
+a,
+button,
+input[type=submit] {
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.inactiveLink{
+  pointer-events: none;
+}
+
+a,
+button,
+input,
+select,
+textarea {
+  outline: none !important;
+  -webkit-appearance: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: 'Chakra Petch', sans-serif;
+}
+
+img {
+  max-width: 100%;
+}
+
+.container{
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.task-form{
+  .radio-group{
+    margin-top: 15px;
+  }
+}
+
+.status-label{
+  padding: 7px 15px;
+  margin-left: 10px;
+  border-radius: 3px;
+  color: #fff;
+
+  &.planned{
+    background-color: #4e9edb;
+  }
+
+  &.inProgress{
+    background-color: #f6b94d;
+  }
+
+  &.done{
+    background-color: #1d6a65;
+  }
+}
+
+.view{
+  .title{
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+
+    span{
+      font-size: 16px;
+      font-weight: 600;
+    }
+  }
+
+  .point{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+}
+
+.edit-btn{
+  display: inline-block;
+  padding: 7px 15px;
+  margin: 15px 0;
+  border-radius: 3px;
+  color: #fff;
+  background-color: #ce363a;
+}
+

@@ -1,0 +1,29 @@
+<div class="container view">
+  <h2>Current tasks</h2>
+
+  <a ui-sref="form" class="edit-btn">Add new task</a>
+
+  <div class="task" ng-repeat="task in $ctrl.tasks">
+    <div class="title"><span>{{ task.title}}</span>
+      <div class="status-label"
+           ng-class="{ planned: task.status === 'planned', inProgress: task.status === 'in progress', done: task.status === 'done'}">
+        {{ task.status}}
+      </div>
+    </div>
+
+    <div ng-repeat="point in task.points">
+      <div class="point" ng-if="point.content">
+        <div class="content">{{point.content}}</div>
+        <div class="status-label"
+             ng-class="{ planned: point.status === 'planned', inProgress: point.status === 'in progress', done: point.status === 'done'}">
+          {{ point.status}}
+        </div>
+      </div>
+    </div>
+
+    <a ui-sref="edit-form({id: $index})" class="edit-btn">Edit</a>
+  </div>
+</div>
+
+
+
