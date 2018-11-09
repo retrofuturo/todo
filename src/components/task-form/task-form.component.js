@@ -52,7 +52,6 @@ class TaskFormController {
     let statusesArr = [];
     for (let i = 0; i < this.task.points.length; i++) {
       statusesArr.push(this.task.points[i].status);
-      console.log(statusesArr);
     }
     let done = statusesArr.every((elem) => {
       return elem === 'done';
