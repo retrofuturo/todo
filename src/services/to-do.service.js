@@ -16,4 +16,7 @@ export default class ToDoService {
   editTask(task, id) {
     this.tasks[id] = task;
   }
+  removeTask(index) {
+    this.tasks.splice(index, 1);
+  }
 }

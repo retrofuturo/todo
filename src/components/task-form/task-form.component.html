@@ -1,6 +1,7 @@
 
 <div class="container task-form">
-  <h2>Create your task</h2>
+  <h2 ng-hide="$ctrl.$stateParams.id">Create your task</h2>
+  <h2 ng-if="$ctrl.$stateParams.id">Edit your task</h2>
     <form name="taskForm" ng-submit="$ctrl.onSubmit()" novalidate >
 
       <div class="title">
@@ -19,11 +20,13 @@
           <label>{{ point.label }}</label>
           <input type="text" ng-model="point.content" name="point">
         </md-input-container>
-        <button type="button" ng-click="$ctrl.switch($index)">
+        <button type="button" ng-click="$ctrl.switch($index)" ng-if="$ctrl.$stateParams.id">
           <span ng-hide="point.switcher">Edit</span>
           <span ng-if="point.switcher">Save</span>
         </button>
-
+        <button type="button" ng-click="$ctrl.removePoint($index)" ng-if="$ctrl.$stateParams.id">
+          Remove
+        </button>
         <md-radio-group ng-model="point.status" ng-change="$ctrl.getStatus()" class="radio-group" ng-if="$ctrl.$stateParams.id">
           <md-radio-button ng-repeat="status in point.statuses" ng-value="status.value" aria-label="{{status.value}}">
             {{ status.value }}
@@ -31,7 +34,13 @@
         </md-radio-group>
       </div>
 
-      <button type="submit" id="submit">Save</button>
+      <button type="button" ng-click="$ctrl.addPoint()">Add point</button>
+
+      <button type="submit" id="submit" ng-disabled="taskForm.$invalid">Save</button>
+
+      <button type="button" ng-click="$ctrl.removeTask($ctrl.$stateParams.id)" ng-if="$ctrl.$stateParams.id">
+        Remove task
+      </button>
 
     </form>
 
